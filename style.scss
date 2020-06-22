@@ -9,29 +9,30 @@ $petals: 5;
   height: $size;
   border: $border-size solid;
   position: relative;
+
+  & div {
+    position: absolute;
+    border-radius: 0 70% 40% 70%;
+    border: $border-size solid;
+    width: $size * 0.6;
+    height:  $size * 0.6;
+    /* Position these in the center */
+    left: 10px;
+    top: 50px;
+    /* Rotate 45 deg points the point at the top */
+    transform: rotate(45deg);
+    /* Move the point of transformation to the lower right */
+    transform-origin: 90px 90px;
+    animation-duration: 6000ms;
+    animation-iteration-count: 1;
+    /* Important! Without this the elements will snap
+    to their starting positions when the animation ends! */
+    animation-fill-mode: forwards;
+
+  }
 }
 
-/* Style all of the child divs */
-/* These styles shared by all children */
-.container > div {
-  position: absolute;
-  border-radius: 0 70% 40% 70%;
-  border: $border-size solid;
-  width: $size * 0.6;
-  height:  $size * 0.6;
-  /* Position these in the center */
-  left: 10px;
-  top: 50px;
-  /* Rotate 45 deg points the point at the top */
-  transform: rotate(45deg);
-  /* Move the point of transformation to the lower right */
-  transform-origin: 90px 90px;
-  animation-duration: 6000ms;
-  animation-iteration-count: 1;
-  /* Important! Without this the elements will snap
-  to their starting positions when the animation ends! */
-  animation-fill-mode: forwards;
-}
+
 
 @for $i from 1 through 6{
   $hue: ($i - 1) * 60;
