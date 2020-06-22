@@ -30,17 +30,18 @@ $petals: 5;
     animation-fill-mode: forwards;
 
   }
+  @for $i from 1 through 6{
+    $hue: ($i - 1) * 60;
+     & > div:nth-child(#{$i}) {
+      animation-name: bloom-#{$i};
+      background-color: hsla($hue, 100%, 50%, 0.2);
+    } 
+  }
 }
 
 
 
-@for $i from 1 through 6{
-  $hue: ($i - 1) * 60;
-  .container > div:nth-child(#{$i}) {
-    animation-name: bloom-#{$i};
-    background-color: hsla($hue, 100%, 50%, 0.2);
-  } 
-}
+
 
 @for $i from 1 through $petals {
   $angle: ($i - 2) * 45deg;
